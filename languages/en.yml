@@ -12,6 +12,9 @@ menu:
   categories: Categories
   tags: Tags
   about: About
+  docs: 
+    default: Docs
+    getting-started: Getting Started
   search: Search
   schedule: Schedule
   sitemap: Sitemap
