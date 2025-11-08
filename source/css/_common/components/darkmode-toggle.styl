@@ -1,0 +1,33 @@
+if (hexo-config('darkmode')) {
+  .darkmode-toggle {
+    align-items: center;
+    bottom: $b2t-position-bottom-on !important; // 始终显示在底部
+    color: $b2t-color;
+    cursor: pointer;
+    display: flex !important;
+    justify-content: center; // 内容居中
+    height: $sidebar-toggle-size;
+    width: $sidebar-toggle-size !important; // 明确设置宽度，避免拉伸
+    opacity: $b2t-opacity !important; // 确保按钮可见
+    right: $b2t-position-right + $sidebar-toggle-size + 10px; // 放在返回顶部按钮的左侧
+    transition: $transition-ease;
+    transition-property: bottom;
+    sidebar-toggle();
+
+    &:hover {
+      color: $sidebar-highlight;
+      opacity: $b2t-opacity-hover !important;
+    }
+
+    .fa {
+      text-align: center;
+      width: auto; // 图标宽度自适应
+    }
+
+    +tablet-mobile() {
+      right: $b2t-position-right-mobile + $sidebar-toggle-size + 10px;
+      opacity: $b2t-opacity-hover !important;
+    }
+  }
+}
+

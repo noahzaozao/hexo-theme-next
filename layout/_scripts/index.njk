@@ -14,6 +14,9 @@
 {%- endif %}
 
 {{- next_js('next-boot.js') }}
+{%- if theme.darkmode %}
+  {{- next_js('darkmode.js') }}
+{%- endif %}
 {%- if theme.bookmark.enable %}
   {{- next_js('bookmark.js') }}
 {%- endif %}

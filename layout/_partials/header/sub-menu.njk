@@ -2,11 +2,13 @@
 
 {%- if theme.menu and is_page() %}
   {%- set menus = next_menu(page.path) %}
-  {%- for menu in menus %}
-    <ul class="sub-menu menu">
-    {%- for node in menu %}
-      {{ menu_item.render(node) }}
+  {%- if menus %}
+    {%- for menu in menus %}
+      <ul class="sub-menu menu">
+      {%- for node in menu %}
+        {{ menu_item.render(node) }}
+      {%- endfor %}
+      </ul>
     {%- endfor %}
-    </ul>
-  {%- endfor %}
+  {%- endif %}
 {%- endif %}
