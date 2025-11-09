@@ -9,8 +9,22 @@ hexo.extend.helper.register('next_menu', function(path) {
     path = path + '/';
   }
   const { menu_map } = this.theme;
-  if (!menu_map.has(path)) return;
+  
+  // Try to find the exact path first
   let node = menu_map.get(path);
+  
+  // If not found, try to find parent paths
+  if (!node) {
+    let parentPath = path;
+    while (parentPath !== '/' && !node) {
+      // Remove the last segment
+      parentPath = parentPath.replace(/\/[^\/]+\/$/, '/');
+      node = menu_map.get(parentPath);
+    }
+  }
+  
+  if (!node) return;
+  
   const menus = [];
   if (node.children.length) {
     menus.unshift(node.children);
